@@ -21,7 +21,7 @@ document.querySelectorAll('.project-card').forEach((card) => {
     });
 });
 
-const languageButtons = document.querySelectorAll('.lang-btn');
+const languageSwitch = document.querySelector('.language-switch-input');
 const translatedElements = document.querySelectorAll('[data-pt][data-en]');
 
 function setLanguage(language) {
@@ -32,16 +32,21 @@ function setLanguage(language) {
     if (text) element.innerHTML = text;
     });
 
-    languageButtons.forEach((button) => {
-    button.classList.toggle('active', button.dataset.lang === language);
-    });
+    if (languageSwitch) {
+    languageSwitch.checked = language === 'en';
+    languageSwitch.setAttribute('aria-label', language === 'pt'
+        ? 'Alternar para ingles'
+        : 'Alternar para portugues');
+    }
 
     localStorage.setItem('portfolio-language', language);
 }
 
-languageButtons.forEach((button) => {
-    button.addEventListener('click', () => setLanguage(button.dataset.lang));
-});
+if (languageSwitch) {
+    languageSwitch.addEventListener('change', () => {
+    setLanguage(languageSwitch.checked ? 'en' : 'pt');
+    });
+}
 
 const savedLanguage = localStorage.getItem('portfolio-language') || 'pt';
 setLanguage(savedLanguage);
