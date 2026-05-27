@@ -825,10 +825,102 @@ h2 {
     max-width: 640px;
 }
 
-.contact-actions {
+.social-main {
     display: flex;
     flex-direction: column;
-    gap: 12px;
+    gap: .5em;
+    justify-self: end;
+}
+
+.social-row {
+    display: flex;
+    flex-direction: row;
+    gap: .5em;
+}
+
+.social-card {
+    width: 90px;
+    height: 90px;
+    display: grid;
+    place-items: center;
+    outline: none;
+    border: none;
+    background: white;
+    box-shadow: rgba(50, 50, 93, .25) 0 2px 5px -1px,
+        rgba(0, 0, 0, .3) 0 1px 3px -1px;
+    transition: transform .2s ease-in-out, background-color .2s ease-in-out;
+}
+
+.social-card:hover,
+.social-card:focus-visible {
+    transform: scale(1.1);
+}
+
+.social-card:focus-visible {
+    box-shadow: 0 0 0 4px rgba(255, 255, 255, .28),
+        rgba(50, 50, 93, .25) 0 2px 5px -1px,
+        rgba(0, 0, 0, .3) 0 1px 3px -1px;
+}
+
+.social-card svg {
+    transition: fill .2s ease-in-out;
+}
+
+.social-card-whatsapp {
+    border-radius: 90px 5px 5px 5px;
+}
+
+.social-card-linkedin {
+    border-radius: 5px 90px 5px 5px;
+}
+
+.social-card-github {
+    border-radius: 5px 5px 5px 90px;
+}
+
+.social-card-discord {
+    border-radius: 5px 5px 90px 5px;
+}
+
+.whatsapp {
+    fill: #00ff00;
+}
+
+.linkedin {
+    fill: #0077b5;
+}
+
+.github {
+    fill: #111111;
+}
+
+.discord {
+    fill: #8c9eff;
+}
+
+.social-card-whatsapp:hover,
+.social-card-whatsapp:focus-visible {
+    background-color: #00ff00;
+}
+
+.social-card-linkedin:hover,
+.social-card-linkedin:focus-visible {
+    background-color: #0077b5;
+}
+
+.social-card-github:hover,
+.social-card-github:focus-visible {
+    background-color: #000000;
+}
+
+.social-card-discord:hover,
+.social-card-discord:focus-visible {
+    background-color: #8c9eff;
+}
+
+.social-card:hover svg,
+.social-card:focus-visible svg {
+    fill: white;
 }
 
 footer {
@@ -969,5 +1061,14 @@ footer {
 
     .contact-card {
     padding: 28px;
+    }
+
+    .social-main {
+    justify-self: start;
+    }
+
+    .social-card {
+    width: 76px;
+    height: 76px;
     }
 }
