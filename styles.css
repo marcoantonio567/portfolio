@@ -843,9 +843,13 @@ h2 {
     height: 90px;
     display: grid;
     place-items: center;
+    padding: 0;
     outline: none;
     border: none;
     background: white;
+    cursor: pointer;
+    font: inherit;
+    text-decoration: none;
     box-shadow: rgba(50, 50, 93, .25) 0 2px 5px -1px,
         rgba(0, 0, 0, .3) 0 1px 3px -1px;
     transition: transform .2s ease-in-out, background-color .2s ease-in-out;
@@ -940,6 +944,21 @@ h2 {
 .social-card:hover svg,
 .social-card:focus-visible svg {
     fill: white;
+}
+
+.social-copy-feedback {
+    min-height: 20px;
+    color: var(--muted);
+    font-size: 13px;
+    text-align: center;
+    opacity: 0;
+    transform: translateY(-4px);
+    transition: opacity .2s ease, transform .2s ease;
+}
+
+.social-copy-feedback.visible {
+    opacity: 1;
+    transform: translateY(0);
 }
 
 footer {

@@ -48,6 +48,48 @@ if (languageSwitch) {
     });
 }
 
+const discordCopyButton = document.querySelector('[data-copy-discord]');
+const discordCopyFeedback = document.querySelector('.social-copy-feedback');
+
+if (discordCopyButton && discordCopyFeedback) {
+    let feedbackTimer;
+
+    function copyText(text) {
+    if (navigator.clipboard && window.isSecureContext) {
+        return navigator.clipboard.writeText(text);
+    }
+
+    const textarea = document.createElement('textarea');
+    textarea.value = text;
+    textarea.setAttribute('readonly', '');
+    textarea.style.position = 'fixed';
+    textarea.style.left = '-999px';
+    document.body.appendChild(textarea);
+    textarea.select();
+    const copied = document.execCommand('copy');
+    textarea.remove();
+
+    return copied ? Promise.resolve() : Promise.reject();
+    }
+
+    discordCopyButton.addEventListener('click', async () => {
+    const username = discordCopyButton.dataset.copyDiscord;
+
+    try {
+        await copyText(username);
+        discordCopyFeedback.textContent = `Discord copiado: ${username}`;
+    } catch {
+        discordCopyFeedback.textContent = `Discord: ${username}`;
+    }
+
+    discordCopyFeedback.classList.add('visible');
+    clearTimeout(feedbackTimer);
+    feedbackTimer = setTimeout(() => {
+        discordCopyFeedback.classList.remove('visible');
+    }, 2600);
+    });
+}
+
 const savedLanguage = localStorage.getItem('portfolio-language') || 'pt';
 setLanguage(savedLanguage);
  
