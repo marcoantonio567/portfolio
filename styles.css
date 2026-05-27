@@ -298,6 +298,70 @@ a {
     background: rgba(255,255,255,.06);
 }
 
+.github-tooltip-button {
+    position: relative;
+    display: inline-grid;
+    place-items: center;
+    width: 52px;
+    height: 52px;
+    color: var(--soft);
+    border: 1px solid rgba(255,255,255,.16);
+    border-radius: 999px;
+    background: rgba(255,255,255,.06);
+    cursor: pointer;
+    transition: transform .25s ease, box-shadow .25s ease, background .25s ease, color .25s ease;
+}
+
+.github-tooltip-button:hover,
+.github-tooltip-button:focus-visible {
+    color: #4f8cff;
+    background: rgba(255,255,255,.09);
+    box-shadow: 0 18px 40px rgba(79, 140, 255, .2);
+    transform: translateY(-3px);
+}
+
+.github-tooltip-button:focus-visible {
+    outline: 2px solid var(--cyan);
+    outline-offset: 5px;
+}
+
+.github-tooltip-icon {
+    width: 32px;
+    height: 32px;
+    transition: transform .2s ease, color .2s ease;
+}
+
+.github-tooltip-button:hover .github-tooltip-icon,
+.github-tooltip-button:focus-visible .github-tooltip-icon {
+    transform: scale(1.25);
+}
+
+.github-tooltip-label {
+    position: absolute;
+    z-index: 20;
+    top: -56px;
+    left: 50%;
+    transform: translateX(-50%) scale(0);
+    transform-origin: center bottom;
+    padding: 8px 12px;
+    border: 1px solid #d1d5db;
+    border-radius: 8px;
+    background: #ffffff;
+    color: #111827;
+    font-size: 14px;
+    font-weight: 800;
+    line-height: 1;
+    box-shadow: 0 12px 28px rgba(0, 0, 0, .2);
+    transition: transform .3s ease-in-out;
+    pointer-events: none;
+    white-space: nowrap;
+}
+
+.github-tooltip-button:hover .github-tooltip-label,
+.github-tooltip-button:focus-visible .github-tooltip-label {
+    transform: translateX(-50%) scale(1);
+}
+
 .hero {
     position: relative;
     display: grid;
