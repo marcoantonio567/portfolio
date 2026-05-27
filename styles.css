@@ -863,7 +863,26 @@ h2 {
 }
 
 .social-card svg {
+    width: 38px;
+    height: 38px;
+    display: block;
     transition: fill .2s ease-in-out;
+}
+
+.social-card-whatsapp svg {
+    transform: translate(7px, 7px);
+}
+
+.social-card-linkedin svg {
+    transform: translate(-7px, 7px);
+}
+
+.social-card-github svg {
+    transform: translate(7px, -7px);
+}
+
+.social-card-discord svg {
+    transform: translate(-7px, -7px);
 }
 
 .social-card-whatsapp {
